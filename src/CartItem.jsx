@@ -3,6 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
+
+// Todo: integrate Redux
+// Dispatch the updateQuantity action to update the quantity of the cart item.
+// Dispatch the addItem action to add the item from the cart.
+// Dispatch the removeItem action to remove the item from the cart.
+
+
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();

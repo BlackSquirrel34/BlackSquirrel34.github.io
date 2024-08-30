@@ -4,6 +4,12 @@ import CartItem from './CartItem';
 // changed import statement:
 import addItem from './CartSlice';
 
+// Todo: integrate Redux
+// Initialize the cart items state in the Redux store.
+//  Dispatch the addItem action to add items to the cart.
+// Retrieve the quantity of all the items in the cart from the Redux store.
+
+
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
