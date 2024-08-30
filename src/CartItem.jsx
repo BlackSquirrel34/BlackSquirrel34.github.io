@@ -10,27 +10,65 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
  
+    // You can iterate through the item array, 
+    // find the quantity of each item using the item.quantity property 
+    // and multiply by the cost of that plant type using the item.cost property.
+
   };
 
   const handleContinueShopping = (e) => {
-   
+    // Users should be able to return to the plant listing page to continue shopping while 
+    // on the shopping cart page. So, in the handleContinueShopping() function call the function 
+    // passed from the parent component.
   };
 
 
 
   const handleIncrement = (item) => {
+    // you need to dispatch the updateQuantity() reducer in the CartSlice.jsx file.
+    //  In the function argument, add one to the item.quantity value
   };
 
   const handleDecrement = (item) => {
-   
+    //  you need to dispatch the updateQuantity() reducer in the CartSlice.jsx file. 
+    // In the function argument, subtract one from the item.quantity value
+
+   // for the handleDecrement() you will need an if-else to handle the case if 
+    // the number of items gets decremented to 0. In that case, you will 
+    // need to dispatch the removeItem() method.
   };
 
   const handleRemove = (item) => {
+    // you need to dispatch the removeItem() method.
+  };
+
+  const handleCheckoutShopping = (e) => {
+  alert('Functionality to be added for future reference');
   };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    // Calculate the total cost of the number of plants of a particular type with 
+    // the calculateTotalCost() function by multiplying the unit cost of a plant by 
+    // the number of that type of plant in the cart.
   };
+
+
+  // Event handlers
+
+  // event handler for incrementing
+  // event handler for decrementing
+  // When the user changes the number of a plant type in the cart, the following data needs updated: 
+  // the cart icon, the number of that plant type, the subtotal, and the total cost.
+
+  // Implement an event handler to remove the item from the cart.
+
+
+  // total quantity counter
+  // Maintain a variable dedicated to counting the total number of items added to the cart.
+  // Update this variable as the user adds or removes plants from the cart.
+  // Display the total quantity on the cart icon in the navbar.
+
 
   return (
     <div className="cart-container">
