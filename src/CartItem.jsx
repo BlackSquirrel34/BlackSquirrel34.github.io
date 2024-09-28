@@ -22,13 +22,12 @@ const CartItem = ({ onContinueShopping }) => {
       let total = 0; // Use 'let' to allow reassignment
   // You can iterate through the item array, 
   // find the quantity of each item using the item.quantity property 
-        items.forEach(item => {
-            const quantity = item.quantity; 
-  // and multiply by the cost of that plant type using the item.cost property.
-            const sum = quantity * item.cost;
-            total += sum; // Accumulate the total
-        });
-    return total; 
+        cart.forEach(item => {
+    const quantity = item.quantity; 
+    const sum = quantity * parseFloat(item.cost.replace('$', '')); // Convert to float
+    total += sum; 
+  });
+  return total; 
   };
 
 
@@ -45,21 +44,21 @@ const CartItem = ({ onContinueShopping }) => {
     // you need to dispatch the updateQuantity() reducer in the CartSlice.jsx file.
     //  In the function argument, add one to the item.quantity value
     const newQuantity = item.quantity + 1; // Add 1 to the current quantity
-    dispatch(updateQuantity(item.name, newQuantity)); // Dispatch the update 
+    dispatch(updateQuantity({ name: item.name, quantity: newQuantity })); // Dispatch the update 
   };
 
   const handleDecrement = (item) => {
     // dispatch the updateQuantity() reducer in the CartSlice.jsx file. 
     // In the function argument, subtract one from the item.quantity value
     const newQuantity = item.quantity - 1; 
-    dispatch(updateQuantity(item.name, newQuantity)); 
+    dispatch(updateQuantity({ name: item.name, quantity: newQuantity }));
 
     // for the handleDecrement() you will need an if-else to handle the case if 
     // the number of items gets decremented to 0. In that case, you will 
     // need to dispatch the removeItem() method.
-    if (item.quantity == 0){
+      if (newQuantity <= 0) {
       dispatch(removeItem(item));
-    }
+      }
   };
 
   const handleRemove = (item) => {
