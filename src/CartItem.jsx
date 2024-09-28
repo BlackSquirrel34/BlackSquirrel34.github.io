@@ -4,13 +4,14 @@ import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 
+// const dispatch = useDispatch();
 // Todo: integrate Redux
 // Dispatch the updateQuantity action to update the quantity of the cart item.
-dispatch(updateQuantity());
+//dispatch(updateQuantity());
 // Dispatch the addItem action to add the item from the cart.
-dispatch(addItem());
+//dispatch(addItem());
 // Dispatch the removeItem action to remove the item from the cart.
-dispatch(removeItem());
+//dispatch(removeItem());
 
 
 const CartItem = ({ onContinueShopping }) => {

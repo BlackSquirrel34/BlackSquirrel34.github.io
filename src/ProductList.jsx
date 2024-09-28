@@ -7,13 +7,13 @@ import addItem from './CartSlice';
 
 // Todo: integrate Redux
 // Initialize the cart items state in the Redux store.
-const initialState = {
-    items: [],  // This is where your cart items will be stored
-};
+//const initialState = {
+//    items: [],  // This is where your cart items will be stored
+//};
 //  Dispatch the addItem action to add items to the cart.
-dispatch(addItem(item)); // This triggers the state change in the Redux store
+//dispatch(addItem(item)); // This triggers the state change in the Redux store
 // Retrieve the quantity of all the items in the cart from the Redux store.
-const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+//const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
 
 function ProductList() {
