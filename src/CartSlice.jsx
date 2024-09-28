@@ -6,6 +6,10 @@ export const CartSlice = createSlice({
     items: [], // Initialize items as an empty array
   },
   reducers: {
+    // adds a new plant to the items array initialized above
+    // addItem() should get called when the user selects "Add to cart". subsequently, handleAddToCart() get called,
+    // which has the plant type as parameter
+    // handleAddToCart() will then dispatch the plant details to the additem() reduser
     addItem: (state, action) => {
       const { name, image, cost } = action.payload;
       const existingItem = state.items.find(item => item.name === name);
@@ -16,19 +20,17 @@ export const CartSlice = createSlice({
       }
     },
 
-    // Todo:
-    // not sure about this one
+    // removes item from cart based on its name
+    // state.items = state.items.filter(item => item.name !== action.payload);
+    // additional lines by me
     removeItem: (state, action) => {
       const { name, image, cost } = action.payload;
       const hasItem = state.items.filter(item => item.name !== action.payload);
-      if (hasItem) {
-        hasItem.quantity--;
-      } else {
-       
-      }
     },
 
-
+    // first extracts the items's name amd amount from the action.payload. 
+    // then looks for the item in the state.items array with matching name
+    // if found, quantity is updated to amount in payload
     updateQuantity: (state, action) => {
       const { name, quantity } = action.payload;
       const itemToUpdate = state.items.find(item => item.name === name);
@@ -43,10 +45,9 @@ export const CartSlice = createSlice({
 });
 
 
-// Todo:
 //  Export the action creators, addItem() to use in ProductList.jsx, removeItem(), and updateQuantity(), to use in the CartItem.jsx.
-   // Also export the reducer as the default to use in store.js.
+// Also export the reducer as the default to use in store.js.
 
-export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
+export const { addItem, removeItem, updateQuantity } = CartSlice.actions; // used in ProductList.jsx and CartItem.jsx
 
-export default CartSlice.reducer;
+export default CartSlice.reducer; // used in store.js
